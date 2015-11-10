@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "TwitterClient.h"
+#import "TweetsViewController.h"
 
 @interface LoginViewController ()
 
@@ -33,5 +35,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)didLogin:(id)sender {
+    [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
+        if (user != nil) {
+            // modally present tweets view
+            NSLog(@"Welcome to %@", user.name);
+            [self presentViewController:[[TweetsViewController alloc] init] animated:YES completion:nil];
+            [User currentUser];
+        } else {
+            // present error view
+        }
+    }];
+    
+}
 
 @end

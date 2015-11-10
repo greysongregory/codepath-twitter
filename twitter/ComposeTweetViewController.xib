@@ -1,19 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeTweetViewController">
             <connections>
+                <outlet property="profileImage" destination="G8u-8j-gd2" id="Znc-y2-qYA"/>
+                <outlet property="tweetText" destination="xkJ-OD-7Zq" id="gOW-sD-02T"/>
+                <outlet property="username" destination="WMv-ND-4Uh" id="DhX-u8-LPy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-OD-7Zq">
+                    <rect key="frame" x="0.0" y="145" width="320" height="148"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-8j-gd2">
+                    <rect key="frame" x="8" y="64" width="73" height="73"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="73" id="dr0-Nl-API"/>
+                        <constraint firstAttribute="height" constant="73" id="zDB-Yt-uV8"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMv-ND-4Uh">
+                    <rect key="frame" x="89" y="64" width="84" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="G8u-8j-gd2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="CMz-7s-bf9"/>
+                <constraint firstItem="WMv-ND-4Uh" firstAttribute="leading" secondItem="G8u-8j-gd2" secondAttribute="trailing" constant="8" id="e3U-a9-Bjx"/>
+                <constraint firstItem="G8u-8j-gd2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mGx-cg-SeI"/>
+                <constraint firstItem="xkJ-OD-7Zq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nzO-JK-S2m"/>
+                <constraint firstItem="WMv-ND-4Uh" firstAttribute="top" secondItem="G8u-8j-gd2" secondAttribute="top" id="rNY-aU-HzA"/>
+                <constraint firstAttribute="bottom" secondItem="xkJ-OD-7Zq" secondAttribute="bottom" constant="275" id="sX1-8p-YdL"/>
+                <constraint firstItem="xkJ-OD-7Zq" firstAttribute="top" secondItem="G8u-8j-gd2" secondAttribute="bottom" constant="8" id="scF-Sd-Y0v"/>
+                <constraint firstAttribute="trailing" secondItem="xkJ-OD-7Zq" secondAttribute="trailing" id="uWC-Hu-9at"/>
+            </constraints>
+            <point key="canvasLocation" x="326" y="504"/>
         </view>
     </objects>
 </document>
