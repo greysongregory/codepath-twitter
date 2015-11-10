@@ -35,6 +35,8 @@ Here's a walkthrough of implemented user stories:
 
 ![Video Walkthrough](twitter_demo.gif)
 
+Gif tools giving lots of trouble. Here's a video: http://recordit.co/7FjPC5yUiZ
+
 ## Notes
 
 Tough to distiguish when the delegate pattern was needed. I felt that there was extra code written when trying to throw data between view controllers. I feel like there is extra image url retrevial and a single image could be loaded per user and reused.
