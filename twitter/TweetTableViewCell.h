@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface TweetTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *timestamp;
 @property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property (strong, nonatomic) User *user;
 
 @end

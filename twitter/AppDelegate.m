@@ -12,6 +12,8 @@
 #import "User.h"
 #import "Tweet.h"
 #import "TweetsViewController.h"
+#import "HamburgerViewController.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +32,23 @@
     User *user = [User currentUser];
     if (user != nil) {
         NSLog(@"welcome, %@", user.name);
-        self.window.rootViewController = [[TweetsViewController alloc] init];
+        HamburgerViewController *hamburgerViewController = [HamburgerViewController new];
+        // may neec for handling changes to view controller events:
+        //[HamburgerViewController addObserver:self forKeyPath:@"menuViewController" options:NSKeyValueObservingOptionNew context:nil];
+
+        MenuViewController *menuViewController = [[MenuViewController alloc] init];
+        //TweetsViewController *tweetsViewController = [[TweetsViewController alloc] init];
+
+        menuViewController.hamburgerViewController = hamburgerViewController;
+        
+        hamburgerViewController.menuViewController = menuViewController;
+
+        [menuViewController.tableView reloadData];
+
+        self.window.rootViewController = hamburgerViewController;
+//        self.window.rootViewController = [[TweetsViewController alloc] init];
+        
+
     } else {
         NSLog(@"not logged in");
         self.window.rootViewController = [[LoginViewController alloc] init];

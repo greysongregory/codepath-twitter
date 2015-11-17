@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "TweetsViewController.h"
+#import "HamburgerViewController.h"
+#import "MenuViewController.h"
 
 @interface LoginViewController ()
 
@@ -40,7 +42,22 @@
         if (user != nil) {
             // modally present tweets view
             NSLog(@"Welcome to %@", user.name);
-            [self presentViewController:[[TweetsViewController alloc] init] animated:YES completion:nil];
+            HamburgerViewController *hamburgerViewController = [HamburgerViewController new];
+            // may neec for handling changes to view controller events:
+            //[HamburgerViewController addObserver:self forKeyPath:@"menuViewController" options:NSKeyValueObservingOptionNew context:nil];
+            
+            MenuViewController *menuViewController = [[MenuViewController alloc] init];
+            
+            menuViewController.hamburgerViewController = hamburgerViewController;
+            
+            hamburgerViewController.menuViewController = menuViewController;
+            
+            [menuViewController.tableView reloadData];
+            
+           // self.window.rootViewController = hamburgerViewController;
+
+            [self presentViewController:hamburgerViewController animated:YES completion:nil];
+            
             [User currentUser];
         } else {
             // present error view
